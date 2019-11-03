@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Dermah/blog.dermah.com/issues"
   },
-  "homepage": "https://github.com/Dermah/blog.dermah.com#readme"
+  "homepage": "https://github.com/Dermah/blog.dermah.com#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.9.0"
+  }
 }
