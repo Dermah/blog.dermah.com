@@ -1,0 +1,22 @@
+{
+  "name": "blog.dermah.com",
+  "version": "1.0.0",
+  "description": "Static site blog src for blog.dermah.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dermah/blog.dermah.com.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Sputnik <inquiry@dermah.com> (https://blog.dermah.com/)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Dermah/blog.dermah.com/issues"
+  },
+  "homepage": "https://github.com/Dermah/blog.dermah.com#readme"
+}
