@@ -1,3 +1,6 @@
+---
+eleventyExcludeFromCollections: true
+---
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,6 +22,12 @@
   </head>
   <body>
     <h1>This is blog.dermah.com</h1>
+
+    {%- for post in collections.all -%}
+    <article>
+      {{post.templateContent}}
+    </article>
+    {%- endfor -%}
 
     <!-- Default Statcounter code for blog.dermah.org  -->
     <script type="text/javascript">
