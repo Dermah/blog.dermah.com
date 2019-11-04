@@ -4,7 +4,9 @@
   "description": "Static site blog src for blog.dermah.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx @11ty/eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx @11ty/eleventy --serve"
   },
   "repository": {
     "type": "git",
