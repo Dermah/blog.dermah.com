@@ -1,5 +1,6 @@
 ---
 eleventyExcludeFromCollections: true
+blogStatus: Extremely MVP
 ---
 <!DOCTYPE html>
 <html>
@@ -18,16 +19,39 @@ eleventyExcludeFromCollections: true
       gtag("config", "UA-3885035-5");
     </script>
     <!-- End global site tag-->
-    <title>blog.dermah.com</title>
+    <title>blog.dermah.com | Current Status: {{blogStatus}}</title>
   </head>
   <body>
     <h1>This is blog.dermah.com</h1>
+
+    <aside style="background-color: #eeeeff">
+      <h2>Blog Status: <code>{{blogStatus}}</code></h2>
+      <ul>
+        <li><strong>HTML</strong>: Average semantics</li>
+        <li><strong>Content</strong>: Almost non-existent</li>
+        <li><strong>CSS</strong>: What is CSS</li>
+        <li><strong>JS</strong>: Why bother at this point</li>
+        <li><strong>Infrastructure</strong>: Not bad tbh</li>
+      </ul>
+    </aside>
+
+    <hr />
 
     {%- for post in collections.all -%}
     <article>
       {{post.templateContent}}
     </article>
+    <hr />
     {%- endfor -%}
+
+    <footer style="background-color: #eeeeff">
+      <h2>Welcome to the footer</h2>
+      <ul>
+        <li>See also: things that are better than <code>{{blogStatus}}</code> at <a href="https://dermah.org">dermah.org</a></li>
+        <li>See also: <a href="https://github.com/Dermah/blog.dermah.com">Source for this blog on GitHub</a></li>
+      </ul>
+        <small>Cobbled together using <a href="https://www.11ty.io/">11ty</a></small>
+    </footer>
 
     <!-- Default Statcounter code for blog.dermah.org  -->
     <script type="text/javascript">
