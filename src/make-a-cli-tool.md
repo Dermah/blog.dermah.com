@@ -4,7 +4,7 @@ title: How to make a node-based CLI tool
 
 # Post: {{title}}
 
-If you have a local repo you use all the time that would be useful as a global command line utility, this is for you. In this example, we're going to create a command line utility called `blerp`
+If you have a local repo you use all the time that would be useful as a global command line utility, this is for you! In this example, we're going to create a command line utility called `blerp`
 
 ## Add a CLI entrypoint file to your package
 
@@ -13,7 +13,7 @@ Call it something like `cli.js`. It should look like this:
 ```js
 #!/usr/bin/env node
 
-console.log("Hello!");
+console.log(`Hello! Command is ${process.argv[2]}`);
 ```
 
 ## Tell npm your package has an executable entrypoint
@@ -24,17 +24,17 @@ In your `package.json`, add this:
 "bin" : { "blerp" : "./cli.js" }
 ```
 
-## Install your package globally
+## Install your package for use anywhere
 
 Do this:
 
 ```sh
-npm install -g
+npm link
 ```
 
 Now you can do this:
 
 ```console
-$ blerp
-> Hello!
+$ blerp flerp
+> Hello! Command is flerp
 ```
