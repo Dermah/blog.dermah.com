@@ -7,7 +7,8 @@
     "build": "npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npx @11ty/eleventy --serve",
-    "deploy": "aws s3 sync --acl public-read ./dist s3://blog.dermah.com"
+    "deploy": "aws s3 sync --acl public-read ./dist s3://blog.dermah.com",
+    "decache": "aws cloudfront create-invalidation --distribution-id ERBF9ZKGOX89B --paths / /index.html"
   },
   "repository": {
     "type": "git",
