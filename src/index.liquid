@@ -5,6 +5,8 @@ blogStatus: Extremely MVP
 <!DOCTYPE html>
 <html>
   <head>
+
+    {% unless environment.serve %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -19,6 +21,8 @@ blogStatus: Extremely MVP
       gtag("config", "UA-3885035-5");
     </script>
     <!-- End global site tag-->
+    {% endunless %}
+
     <title>blog.dermah.com | Current Status: {{blogStatus}}</title>
   </head>
   <body>
@@ -53,6 +57,7 @@ blogStatus: Extremely MVP
         <small>Cobbled together using <a href="https://www.11ty.io/">11ty</a></small>
     </footer>
 
+    {% unless environment.serve %}
     <!-- Default Statcounter code for blog.dermah.org  -->
     <script type="text/javascript">
       var sc_project = 12135697;
@@ -74,5 +79,6 @@ blogStatus: Extremely MVP
         /></a></div
     ></noscript>
     <!-- End of Statcounter Code -->
+    {% endunless %}
   </body>
 </html>
