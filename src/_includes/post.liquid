@@ -1,7 +1,3 @@
----
-eleventyExcludeFromCollections: true
-blogStatus: Extremely MVP
----
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,41 +19,32 @@ blogStatus: Extremely MVP
     <!-- End global site tag-->
     {% endunless %}
 
-    <title>blog.dermah.com | Current Status: {{blogStatus}}</title>
+    <title>{{title}} | blog.dermah.com</title>
     <meta name="Description" content="An incrementally improving blog featuring mostly software engineering stuff, but we'll see what else happens.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@dermah" />
     <meta name="twitter:creator" content="@dermah" />
-    <meta property="og:title" content="blog.dermah.com | Index" />
+    <meta property="og:title" content="{{title}} | blog.dermah.com" />
     <meta property="og:site_name" content="blog.dermah.com" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://blog.dermah.com" />
+    <meta property="og:url" content="https://blog.dermah.com{{page.url}}" />
     <meta property="og:image" content="https://dermah.org/icons/dermah-org-12x.png" />
   </head>
   <body>
-    <h1>This is blog.dermah.com</h1>
 
-    <aside style="background-color: #eeeeff">
-      <h2>Blog Status: <code>{{blogStatus}}</code></h2>
-      <ul>
-        <li><strong>HTML</strong>: Average semantics</li>
-        <li><strong>Content</strong>: Almost non-existent</li>
-        <li><strong>CSS</strong>: What is CSS</li>
-        <li><strong>JS</strong>: Why bother at this point</li>
-        <li><strong>Infrastructure</strong>: Not bad tbh</li>
-      </ul>
-    </aside>
+    <nav>
+      <h1>You're looking at a post on blog.dermah.com</h1>
+      <a href="/" >< Back To The Index</a>
+    </nav>
 
     <hr />
 
-    {%- for post in collections.all -%}
     <article>
-      <h2><a href="{{post.url}}">Post: {{post.data.title}}</a></h2>
-      {{post.templateContent}}
+      <h2>{{title}}</h2>
+      {{content}}
     </article>
     <hr />
-    {%- endfor -%}
 
     <footer style="background-color: #eeeeff">
       <h2>Welcome to the footer</h2>

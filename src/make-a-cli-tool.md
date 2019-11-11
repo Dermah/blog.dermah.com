@@ -1,8 +1,7 @@
 ---
 title: How to make a node-based CLI tool
+layout: post
 ---
-
-# Post: {{title}}
 
 If you have a local repo you use all the time that would be useful as a global command line utility, this is for you! In this example, we're going to create a command line utility called `blerp`
 
