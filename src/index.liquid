@@ -54,7 +54,7 @@ blogStatus: Extremely MVP
     {%- for post in collections.all -%}
     <article>
       <h2><a href="{{post.url}}">Post: {{post.data.title}}</a></h2>
-      {{post.templateContent}}
+      {{post.data.excerpt | renderUsingMarkdown | safe}}
     </article>
     <hr />
     {%- endfor -%}

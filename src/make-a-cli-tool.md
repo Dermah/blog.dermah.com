@@ -5,7 +5,9 @@ layout: post
 
 If you have a local repo you use all the time that would be useful as a global command line utility, this is for you! In this example, we're going to create a command line utility called `blerp`
 
-## Add a CLI entrypoint file to your package
+<!-- excerpt -->
+
+### Add a CLI entrypoint file to your package
 
 Call it something like `cli.js`. It should look like this:
 
@@ -15,7 +17,7 @@ Call it something like `cli.js`. It should look like this:
 console.log(`Hello! Command is ${process.argv[2]}`);
 ```
 
-## Tell npm your package has an executable entrypoint
+### Tell npm your package has an executable entrypoint
 
 In your `package.json`, add this:
 
@@ -23,7 +25,7 @@ In your `package.json`, add this:
 "bin" : { "blerp" : "./cli.js" }
 ```
 
-## Install your package for use anywhere
+### Install your package for use anywhere
 
 Do this:
 
