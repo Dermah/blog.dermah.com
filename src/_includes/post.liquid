@@ -1,85 +1,16 @@
 ---
 permalink: "/{{ page.date | date: '%Y/%m/%d' }}/{{ title | slug }}/index.html"
+layout: main-wrapper
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
 
-    {% unless environment.serve %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-3885035-5"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "UA-3885035-5");
-    </script>
-    <!-- End global site tag-->
-    {% endunless %}
+<nav>
+  <h1>You're looking at a post on blog.dermah.com</h1>
+  <a href="/" >< Back To The Index</a>
+</nav>
 
-    <title>{{title}} | blog.dermah.com</title>
-    <meta name="Description" content="An incrementally improving blog featuring mostly software engineering stuff, but we'll see what else happens.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@dermah" />
-    <meta name="twitter:creator" content="@dermah" />
-    <meta property="og:title" content="{{title}} | blog.dermah.com" />
-    <meta property="og:site_name" content="blog.dermah.com" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://blog.dermah.com{{page.url}}" />
-    <meta property="og:image" content="https://dermah.org/icons/dermah-org-12x.png" />
-  </head>
-  <body>
-
-    <nav>
-      <h1>You're looking at a post on blog.dermah.com</h1>
-      <a href="/" >< Back To The Index</a>
-    </nav>
-
-    <hr />
-
-    <article>
-      <h2>{{title}}</h2>
-      {{content}}
-    </article>
-    <hr />
-
-    <footer style="background-color: #eeeeff">
-      <h2>Welcome to the footer</h2>
-      <ul>
-        <li>See also: things that are better than <code>{{blogStatus}}</code> at <a href="https://dermah.org">dermah.org</a></li>
-        <li>See also: <a href="https://github.com/Dermah/blog.dermah.com">Source for this blog on GitHub</a></li>
-      </ul>
-        <small>Cobbled together using <a href="https://www.11ty.io/">11ty</a></small>
-    </footer>
-
-    {% unless environment.serve %}
-    <!-- Default Statcounter code for blog.dermah.org  -->
-    <script type="text/javascript">
-      var sc_project = 12135697;
-      var sc_invisible = 1;
-      var sc_security = "d1a48557";
-    </script>
-    <script
-      type="text/javascript"
-      src="https://www.statcounter.com/counter/counter.js"
-      async
-    ></script>
-    <noscript
-      ><div class="statcounter">
-        <a title="Web Analytics" href="https://statcounter.com/" target="_blank"
-          ><img
-            class="statcounter"
-            src="https://c.statcounter.com/12135697/0/d1a48557/1/"
-            alt="Web Analytics"
-        /></a></div
-    ></noscript>
-    <!-- End of Statcounter Code -->
-    {% endunless %}
-  </body>
-</html>
+<hr />
+<article>
+  <h2>{{title}}</h2>
+  {{content}}
+</article>
+<hr />
