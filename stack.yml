@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Infrastructure for blog.dermah.com
+Resources:
+  S3Bucket:
+    DeletionPolicy: Retain
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: public-read
+      BucketName: blog.dermah.com
+      WebsiteConfiguration:
+        ErrorDocument: error.html
+        IndexDocument: index.html
