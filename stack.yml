@@ -10,3 +10,11 @@ Resources:
       WebsiteConfiguration:
         ErrorDocument: error.html
         IndexDocument: index.html
+  ACMCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: blog.dermah.com
+      DomainValidationOptions:
+        - DomainName: blog.dermah.com
+          ValidationDomain: dermah.com
+      ValidationMethod: DNS
