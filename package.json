@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Dermah/blog.dermah.com#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.9.0"
+    "@11ty/eleventy": "^0.9.0",
+    "aws-cdk": "^1.18.0"
   }
 }
