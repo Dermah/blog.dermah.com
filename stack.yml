@@ -3,11 +3,13 @@ Description: Infrastructure for blog.dermah.com
 Parameters:
   DomainName:
     Type: String
-    Default: blog.dermah.com
     Description: Domain name to create resources for
   CertificateARN:
     Type: String
     Description: ARN of the ACM Certificate in the us-east-1
+  HostedZoneId:
+    Type: String
+    Description: Hosted Zone ID of the Zone to create the alias target in
 Resources:
   S3Bucket:
     DeletionPolicy: Retain
@@ -43,9 +45,19 @@ Resources:
         Origins:
           - CustomOriginConfig:
               OriginProtocolPolicy: http-only
-            DomainName: !Sub ${DomainName}.s3-website-ap-southeast-2.amazonaws.com
+            DomainName: !Sub ${DomainName}.s3-website-${AWS::Region}.amazonaws.com
             Id: !Sub S3-Website-${DomainName}
         ViewerCertificate:
           AcmCertificateArn: !Ref CertificateARN
           MinimumProtocolVersion: TLSv1.1_2016
           SslSupportMethod: sni-only
+  RecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+      Comment: !Sub Alias Targeting the ${DomainName} CloudFront Distribution
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Ref DomainName
+      Type: A
