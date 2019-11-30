@@ -1,20 +1,51 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: Infrastructure for blog.dermah.com
+Parameters:
+  DomainName:
+    Type: String
+    Default: blog.dermah.com
+    Description: Domain name to create resources for
+  CertificateARN:
+    Type: String
+    Description: ARN of the ACM Certificate in the us-east-1
 Resources:
   S3Bucket:
     DeletionPolicy: Retain
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: public-read
-      BucketName: blog.dermah.com
+      BucketName: !Ref DomainName
       WebsiteConfiguration:
         ErrorDocument: error.html
         IndexDocument: index.html
-  ACMCertificate:
-    Type: AWS::CertificateManager::Certificate
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
     Properties:
-      DomainName: blog.dermah.com
-      DomainValidationOptions:
-        - DomainName: blog.dermah.com
-          ValidationDomain: dermah.com
-      ValidationMethod: DNS
+      DistributionConfig:
+        Aliases:
+          - !Ref DomainName
+        Comment: !Sub Distribution for ${DomainName}
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          Compress: true
+          ForwardedValues:
+            QueryString: false
+          TargetOriginId: !Sub S3-Website-${DomainName}
+          ViewerProtocolPolicy: redirect-to-https
+        Enabled: true
+        HttpVersion: http2
+        IPV6Enabled: true
+        Origins:
+          - CustomOriginConfig:
+              OriginProtocolPolicy: http-only
+            DomainName: !Sub ${DomainName}.s3-website-ap-southeast-2.amazonaws.com
+            Id: !Sub S3-Website-${DomainName}
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertificateARN
+          MinimumProtocolVersion: TLSv1.1_2016
+          SslSupportMethod: sni-only
