@@ -29,13 +29,13 @@ In your `package.json`, add this:
 
 Do this:
 
-```sh
+```bash
 npm link
 ```
 
 Now you can do this:
 
-```console
+```shell-session
 $ blerp flerp
 > Hello! Command is flerp
 ```
