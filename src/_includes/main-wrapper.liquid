@@ -21,13 +21,20 @@ blogStatus: Extremely MVP
     <!-- End global site tag-->
     {%- endunless -%}
 
+    {% if excerpt %}
+      {% assign description = excerpt %}
+    {% else %}
+      {% assign description = "An incrementally improving blog featuring mostly software engineering stuff, but we'll see what else happens." %}
+    {% endif %}
+
     <title>{% if layout == 'post' %}{{title}} | blog.dermah.com{% else %}{{title}}{% endif %}</title>
-    <meta name="Description" content="{% if excerpt %}{{excerpt | strip}}{% else %}An incrementally improving blog featuring mostly software engineering stuff, but we'll see what else happens.{% endif %}">
+    <meta name="Description" content="{{description | strip}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@dermah" />
     <meta name="twitter:creator" content="@dermah" />
     <meta property="og:title" content="{{title}}" />
+    <meta property="og:description" content="{{description | strip}}" />
     <meta property="og:site_name" content="blog.dermah.com" />
     <meta property="og:type" content="{% if layout == 'post' %}article{% else %}website{% endif %}" />
     <meta property="og:url" content="https://blog.dermah.com{{page.url}}" />
