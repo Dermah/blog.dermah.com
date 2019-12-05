@@ -4,6 +4,20 @@ const mdRender = new markdownIt({});
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.setTemplateFormats([
+    "html",
+    "liquid",
+    "ejs",
+    "md",
+    "hbs",
+    "mustache",
+    "haml",
+    "pug",
+    "njk",
+    "11ty.js",
+    "css"
+  ]);
+
   eleventyConfig.setFrontMatterParsingOptions({
     // Define excerpts before the "---" in files
     excerpt: true,
