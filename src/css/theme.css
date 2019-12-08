@@ -19,6 +19,7 @@ h5,
 h6 {
   font-family: "Times New Roman", Times, serif;
   line-height: 1.2;
+  margin-top: 0;
 }
 
 article {
@@ -45,4 +46,8 @@ code {
   padding: 0.15em 0.25em;
   border-radius: 0.3em;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
+pre[class*="language-"] {
+  margin: 1em 0;
 }
