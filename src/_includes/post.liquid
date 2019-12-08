@@ -1,5 +1,5 @@
 ---
-permalink: "/{{ page.date | date: '%Y/%m/%d' }}/{{ title | slug }}/index.html"
+permalink: "/{{ date | date: '%Y/%m/%d' }}/{{ title | slug }}/index.html"
 layout: main-wrapper
 ---
 
@@ -11,6 +11,11 @@ layout: main-wrapper
 <hr />
 <article>
   <h2>{{title}}</h2>
+
+  <dl>
+    <dt>Published</dt>
+    <dd><time datetime="{{date | date: '%Y-%m-%d'}}">{{date | date: '%e %B %Y'}}</time></dd>
+  </dl>
   {{content}}
 </article>
 <hr />
