@@ -25,11 +25,21 @@ article {
   line-height: 1.6;
 }
 
-code {
-  font-size: 90%;
+dt,
+dd {
+  display: inline;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-inline-start: 1ch;
 }
 
 code {
+  font-size: 90%;
   background-color: #2b2b2b;
   color: #f8f8f2;
   padding: 0.15em 0.25em;
