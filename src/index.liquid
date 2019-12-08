@@ -22,7 +22,10 @@ title: "blog.dermah.com | Index"
 {%- for post in collections.all -%}
 <article>
   <h2><a href="{{post.url}}">Post: {{post.data.title}}</a></h2>
+
   {{post.data.excerpt | renderUsingMarkdown | safe}}
+
+  <a href="{{post.url}}">Continue reading &rarr;</a>
 </article>
 <hr />
 {%- endfor -%}
