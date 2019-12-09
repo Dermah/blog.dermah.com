@@ -40,12 +40,17 @@ dd {
 }
 
 code {
-  font-size: 90%;
   background-color: #2b2b2b;
   color: #f8f8f2;
   padding: 0.15em 0.25em;
   border-radius: 0.3em;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+  /* Code fonts look a bit bigger than regular text? */
+  font-size: 90%;
+  /* Make the background look nice during line breaks */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 pre[class*="language-"] {
