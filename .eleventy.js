@@ -26,6 +26,11 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("renderUsingMarkdown", function(rawString) {
+    if (!rawString) {
+      throw new Error(
+        "Post did not have an `excerpt`. Define it in front matter or use the `<!-- excerpt -->` comment to define the exceprt in the post."
+      );
+    }
     return mdRender.render(rawString);
   });
 
