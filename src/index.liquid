@@ -19,7 +19,8 @@ title: "blog.dermah.com | Index"
 
 <hr />
 
-{%- for post in collections.all -%}
+{%- assign posts = collections.all | reverse -%}
+{%- for post in posts -%}
 <article>
   <h2><a href="{{post.url}}">Post: {{post.data.title}}</a></h2>
 
