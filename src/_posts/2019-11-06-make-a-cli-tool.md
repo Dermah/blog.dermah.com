@@ -1,6 +1,5 @@
 ---
 title: How to make a node-based CLI tool
-date: 2019-11-06
 layout: post
 ---
 
