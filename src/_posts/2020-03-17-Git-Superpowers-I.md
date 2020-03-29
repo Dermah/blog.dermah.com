@@ -142,4 +142,25 @@ git cherry-pick 893a8db72d54658040087a70afb3d7fa5bf5cc22
 ```
 
   </div>
+
+  <div class="width-50-pc">
+    <pre class="term-container language-shell-session"><span class="token command"><span class="token sh important">$</span> <span class="token bash language-bash">git log --graph --oneline --all</span></span>
+* <span class="term-fg33">be9779a1 (</span><span class="term-fg36 term-fg1">HEAD -&gt; </span><span class="term-fg32 term-fg1">DEV-999999-really-cool-component</span><span class="term-fg33">, </span><span class="term-fg32 term-fg1">backup&#47;yay</span><span class="term-fg33">)</span> Fix a bug with the branding of the login screen
+* <span class="term-fg33">b735020f</span> Bump all dependencies for the lols
+* <span class="term-fg33">2e055574</span> Remove leg end
+* <span class="term-fg33">261cad18</span> Fix bug in text component that limited developer choice
+* <span class="term-fg33">312a896f</span> Use cool text component on the login screen
+* <span class="term-fg33">7c56fdbf</span> Add a cool Text atom component
+* <span class="term-fg33">ca77ced8</span> Add git watch scripts
+<span class="term-fg31">|</span> * <span class="term-fg33">733f3cc4 (</span><span class="term-fg32 term-fg1">master</span><span class="term-fg33">)</span> DEV-87653 Switch indenting to two tabs instead of 3 spaces
+<span class="term-fg31">|</span> * <span class="term-fg33">aaaae70b</span> DEV-48937 Sort all props in reverse alphabetical order
+<span class="term-fg31">|&#47;</span>
+* <span class="term-fg33">707f52ab</span> DEV-2733 Experiences (#460)
+* <span class="term-fg33">85a31564</span> DEV-2736 swapped buttons around on PSS on SW profiles (#461)
+* <span class="term-fg33">a7b6b05a</span> DEV-2731 PSS info on profile page (#457)
+* <span class="term-fg33">49fee3a0</span> DEV-2737 added profile buttons to SW and PSS (#455)
+* <span class="term-fg33">0a9eb838</span> DEV-2995 Handle auth failure in WebSockets (#459)
+* <span class="term-fg33">5fed9627</span> DEV-2732 Verified Documents (#456)
+</pre>
+  </div>
 </div>
