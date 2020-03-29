@@ -13,6 +13,9 @@ We’re going to learn to:
 
 <!-- excerpt -->
 
+<div class="flex">
+  <div class="width-50-pc">
+
 ```bash
 # TALK
 
@@ -137,3 +140,6 @@ git log --graph --oneline --decorate --all $( git fsck --no-reflog | awk '/dangl
 git cherry-pick 893a8db72d54658040087a70afb3d7fa5bf5cc22
 # Tada I rescued a stash from oblivion yey
 ```
+
+  </div>
+</div>
