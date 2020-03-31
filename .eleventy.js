@@ -2,7 +2,6 @@ const markdownIt = require("markdown-it");
 const unescapeAll = require("markdown-it/lib/common/utils").unescapeAll;
 
 const Convert = require("ansi-to-html");
-const convert = new Convert();
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
@@ -13,6 +12,19 @@ module.exports = function(eleventyConfig) {
   });
 
   // ### RENDER ANSI ESCAPE CODES IN `shell-session` OUTPUT USING SPANS
+
+  const convert = new Convert({
+    // use iTerm2 default colours
+    colors: {
+      "1": "#c91b00",
+      "2": "#00c200",
+      "3": "#c7c400",
+      "4": "#0225c7",
+      "5": "#c930c7",
+      "6": "#00c5c7",
+      "7": "#c7c7c7"
+    }
+  });
 
   // Remember old fence renderer, if overridden, or proxy to default renderer
   var defaultFenceRender =
