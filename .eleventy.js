@@ -50,6 +50,13 @@ module.exports = function(eleventyConfig) {
 
     // get default output and mash some ansi spans in there
     let output = defaultFenceRender(tokens, idx, options, env, self);
+
+    output = output.replace(
+      // I hate this, doing it to increase CSS specifisity to style
+      // the terminal code differently
+      `<pre class="language-shell-session">`,
+      `<pre class="language-shell-session terminal-box">`
+    );
     return convert.toHtml(output);
   };
 
