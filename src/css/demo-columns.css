@@ -1,0 +1,22 @@
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.half-column {
+  width: 50%;
+  min-width: 80ch;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 80ch) {
+  .half-column {
+    min-width: 100%;
+  }
+}
+
+.half-column > pre[class*="language-"] {
+  margin: 1em 0.5em;
+}
