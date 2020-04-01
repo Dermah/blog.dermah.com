@@ -14,6 +14,12 @@ layout: main-wrapper
   <h2>{{title}}</h2>
 
   <dl>
+    {% if talk %}
+    <dt>Presented</dt>
+    <dd><time datetime="{{talk.date | date: '%Y-%m-%d'}}">{{talk.date | date: '%e %B %Y'}}</time></dd>
+    <br />
+    {% endif %}
+
     <dt>Published</dt>
     <dd><time datetime="{{page.date | date: '%Y-%m-%d'}}">{{page.date | date: '%e %B %Y'}}</time></dd>
   </dl>
