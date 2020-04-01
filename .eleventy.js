@@ -76,14 +76,21 @@ module.exports = function(eleventyConfig) {
     "css"
   ]);
 
+  // Define excerpts that are used in summaried throughout the blog
+  // Use like: <!-- excerpt -->
+  // and: {{post.data.excerpt | renderUsingMarkdown | safe}}
   eleventyConfig.setFrontMatterParsingOptions({
-    // Define excerpts before the "---" in files
     excerpt: true,
     excerpt_separator: "<!-- excerpt -->",
     excerpt_alias: "excerpt"
   });
 
+  // Use the same markdown renderer everywhere in the blog
+  // (.md files and in templates using the below filter)
   eleventyConfig.setLibrary("md", mdRender);
+
+  // Render markdown strings in templates
+  // Use like: {{post.data.excerpt | renderUsingMarkdown | safe}}
   eleventyConfig.addFilter("renderUsingMarkdown", function(rawString) {
     if (!rawString) {
       throw new Error(
@@ -94,6 +101,18 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(syntaxHighlight);
+
+  // All posts that aren't drafts from oldest first.
+  // Use like: {%- assign posts = collections.allPublicPosts | reverse -%}
+  eleventyConfig.addCollection("allPublicPosts", function(collection) {
+    return collection.getAllSorted().filter(post => !post.data.draft);
+  });
+
+  // print to console filter
+  // Use like: {{ page | console }}
+  eleventyConfig.addFilter("console", function(rawString) {
+    console.log(rawString);
+  });
 
   return {
     dir: {
