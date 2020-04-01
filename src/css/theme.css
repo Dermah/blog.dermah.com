@@ -56,3 +56,8 @@ code {
 pre[class*="language-"] {
   margin: 1em 0;
 }
+
+/* Style terminal output slightly differently */
+pre.language-shell-session.terminal-box {
+  background: #171717;
+}
