@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "SERVE=true npx @11ty/eleventy --serve",
     "deploy": "aws s3 sync --acl public-read ./dist s3://blog.dermah.com",
-    "decache": "aws cloudfront create-invalidation --distribution-id E1XQ0JZXRLB5H7 --paths '/*' '/index.html'"
+    "decache": "aws cloudfront create-invalidation --distribution-id E1XQ0JZXRLB5H7 --paths '/*' '/index.html' '/css/index.css'"
   },
   "repository": {
     "type": "git",
