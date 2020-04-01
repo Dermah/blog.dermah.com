@@ -1,9 +1,11 @@
 ---
-title: Git Superpowers I – Lightning Talk 2020-03-17
+title: Git Superpowers I – Lightning Talk
 layout: post
+talk:
+  date: 2020-03-17
 ---
 
-This is a lightning talk I gave at my work about using Git to give you superpowers. It was mostly a live command line demo, so it is presented here as a shell script with accompanying console output.
+This is a lightning talk I gave at my work about using Git to give you superpowers. It was a live command line demo, so it is presented here as the shell script I used as notes, with accompanying console output that was showing on the screen.
 
 We’re going to learn to:
 
