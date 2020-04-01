@@ -5,15 +5,19 @@ talk:
   date: 2020-03-17
 ---
 
-This is a lightning talk I gave at my work about using Git to give you superpowers. It was a live command line demo, so it is presented here as the shell script I used as notes, with accompanying console output that was showing on the screen.
+This is a lightning talk I gave [at work](https://hireup.com.au) to my colleagues about using Git. The DevOps & SRE team that I'm part of here keeps saying that knowing how to use Git gives you super powers. This lightning talk was an attempt to educate engineers about safety nets Git provides allowing you to make mistakes with confidence, and show real world use cases and workflows when working in teams.
+
+<!-- excerpt -->
+
+The format of the talk was more of a live command line demo, so it's presented here as the shell script I used as notes, with accompanying terminal output as I was typing commands.
+
+---
 
 We’re going to learn to:
 
 - commit only part of the changes in your working directory
 - unzip one feature branch in to two feature branches
 - recover lost commits and stashes
-
-<!-- excerpt -->
 
 <div class="columns">
   <div class="half-column">
