@@ -1,0 +1,20 @@
+{
+  "base_url": "http://localhost:9999/",
+  "port": 9999,
+  "private": false,
+  "store": {
+    "type": "s3",
+    "options": {
+      "access_key": "AWS_ACCESS_KEY",
+      "secret_key": "AWS_SECRET_KEY",
+      "bucket": "blog.dermah.com"
+    }
+  },
+  "authenticator": {
+    "type": "none",
+    "options": {}
+  },
+  "ssh": {
+    "enabled": false
+  }
+}
