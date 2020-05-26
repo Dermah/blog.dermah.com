@@ -1,7 +1,7 @@
 const markdownIt = require("markdown-it");
 const unescapeAll = require("markdown-it/lib/common/utils").unescapeAll;
-
 const Convert = require("ansi-to-html");
+const slugify = require('slugify');
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
@@ -113,6 +113,16 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("console", function(rawString) {
     console.log(rawString);
   });
+
+  // ffs I don't like special characters
+  // Use like: {{ title | slug }}
+  eleventyConfig.addFilter("slug", function(rawString) {
+    return slugify(rawString, {
+      replacement: "-",
+      lower: true,
+      strict: true
+    });
+  })
 
   return {
     dir: {
