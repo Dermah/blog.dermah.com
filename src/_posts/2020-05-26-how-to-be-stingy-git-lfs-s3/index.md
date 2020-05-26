@@ -143,5 +143,52 @@ This tells `git-lfs` to use the server running on yor computer for LFS files. Th
 Add the image file as you normally would:
 
 ```bash
-git add src/_posts/2020-05-26-how-to-be-stingy-git-lfs-s3/nexus-6p-destroyed.jpg
+git add src/_posts/2020-05-26-how-to-be-stingy-git-lfs-s3/2020-05-26-nexus-6p-destroyed.jpg
 ```
+
+You can tell it's tracked by LFS using `git lfs status` and checking the `LFS` tag after the filename:
+
+```shell-session
+$ git lfs status
+On branch master
+Objects to be pushed to origin/master:
+
+Objects to be committed:
+
+        src/_posts/2020-05-26-how-to-be-stingy-git-lfs-s3/2020-05-26-nexus-6p-destroyed.jpg (LFS: 19f2dcd)
+```
+
+Commit and push!
+
+```shell-session
+$ git commit -m "Add example photo"
+[master 08ed873] Add example photo
+ 1 file changed, 3 insertions(+)
+ create mode 100644 src/_posts/2020-05-26-how-to-be-stingy-git-lfs-s3/2020-05-26-nexus-6p-destroyed.jpg
+$ git push
+Uploading LFS objects: 100% (1/1), 387 KB | 0 B/s, done.
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (16/16), 5.21 KiB | 2.61 MiB/s, done.
+Total 16 (delta 8), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (8/8), completed with 4 local objects.
+To https://github.com/Dermah/blog.dermah.com.git
+   4622011..08ed873  master -> master
+```
+
+You'll notice the server you started earlier handled those requests:
+
+```shell-session
+Listening LFS on port 9999
+POST /git-lfs/blog.dermah.com.git/objects/batch [m[1;32m200[m 21.049 ms - 410
+PUT /git-lfs/blog.dermah.com.git/objects/19f2dcd3b4f260b2d6e5cdec56c58d2b150526b262cb0ca15b8d86eb6398d3dd [m[1;32m200[m 316.313 ms - 2
+POST /git-lfs/blog.dermah.com.git/objects/verify [m[1;32m200[m 75.374 ms - 2
+```
+
+(Check out [kzwang/node-git-lfs#5](https://github.com/kzwang/node-git-lfs/issues/5) if this hasn't worked for you, you may need to update some code inside the server since this package is a bit old)
+
+Now we have this picture of a demolished Nexus 6P in all it's glory in the repository!
+
+![A Nexus 6P phone lays smashed to smithereens on a concrete pavement. Green pieces of electronic component board are smashed up and scattered around. The phone screen appears more like the surface of a cheese grater.](/img/2020-05-26-nexus-6p-destroyed.jpg)
