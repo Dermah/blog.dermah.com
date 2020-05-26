@@ -61,3 +61,7 @@ pre[class*="language-"] {
 pre.language-shell-session.terminal-box {
   background: #171717;
 }
+
+article img {
+  width: 100%;
+}
