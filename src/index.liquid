@@ -4,8 +4,26 @@ layout: main-wrapper
 title: "blog.dermah.com | Index"
 ---
 
+<style>
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.big-dumb-avatar {
+  float: right;
+  height: 100px;
+  margin: 1em;
+  animation: rotating 8s linear infinite;
+}
+</style>
+
 <h1>This is blog.dermah.com</h1>
 <aside style="background-color: #eeeeff">
+  <img src="/img/watermelon.jpg" class="big-dumb-avatar" alt="A picture of a watermelon near my face, spinning indefinitely" />
   <h2>Blog Status: <code>{{blogStatus}}</code></h2>
   <ul>
     <li><strong>HTML</strong>: Decent semantics</li>
