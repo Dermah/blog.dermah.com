@@ -8,6 +8,7 @@ You need [git-lfs](https://git-lfs.github.com/)!
 
 ```sh
 brew install git-lfs
+git lfs install
 ```
 
 To push and pull Git LFS objects (`*.jpg`, `*.png`), you may need to be running the local lfs server
@@ -24,4 +25,10 @@ Clone this! and then
 
 ```sh
 npm install
+```
+
+## Dev
+
+```sh
+npm run serve
 ```
