@@ -124,6 +124,15 @@ module.exports = function(eleventyConfig) {
     });
   })
 
+  // Copy `img/` to `_site/img`
+  eleventyConfig.addPassthroughCopy("src/img");
+
+  // oh holy crap all images in all directories will get dumped to `/img`
+  // until 11ty/eleventy#379 is decided on, at which point this and all
+  // posts will need refactoring allow images to stay in the same folder
+  // as their post
+  eleventyConfig.addPassthroughCopy({"src/_posts/**/*.jpg": "img"});
+
   return {
     dir: {
       input: "src",
