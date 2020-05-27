@@ -47,10 +47,11 @@ npm run deploy
 npm run decache
 ```
 
-## Release
+## [Release](https://github.com/Dermah/blog.dermah.com/releases)
 
 Update the blog status, `git add` your changes then
 
 ```bash
 npm version minor -f -m "<blog status>"
+git push --follow-tags
 ```
