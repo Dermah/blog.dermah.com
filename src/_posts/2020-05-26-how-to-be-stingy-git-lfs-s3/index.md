@@ -195,4 +195,4 @@ Now we have this picture of a demolished Nexus 6P in all it's glory in the repos
 
 ### The End
 
-Check out [all the code I used for the LFS server on this blog's Github repo](https://github.com/Dermah/blog.dermah.com/tree/4622011cf54f173d1f59b854609ca14ec2135bdb/lfs-server).
+Check out [all the code I used for the LFS server on this blog's Github repo](https://github.com/Dermah/blog.dermah.com/tree/616fe28/lfs-server).
