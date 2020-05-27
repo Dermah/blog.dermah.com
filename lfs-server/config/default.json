@@ -9,6 +9,7 @@
       "region": "ap-southeast-2"
     }
   },
+  "jwt": {},
   "authenticator": {
     "type": "none",
     "options": {}

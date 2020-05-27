@@ -187,7 +187,7 @@ PUT /git-lfs/blog.dermah.com.git/objects/19f2dcd3b4f260b2d6e5cdec56c58d2b150526b
 POST /git-lfs/blog.dermah.com.git/objects/verify [m[1;32m200[m 75.374 ms - 2
 ```
 
-(Check out [kzwang/node-git-lfs#5](https://github.com/kzwang/node-git-lfs/issues/5) if this hasn't worked for you, you may need to update some code inside the server since this package is a bit old)
+(If you're [experiencing a 422 error](https://github.com/kzwang/node-git-lfs/issues/5) when pushing, try replacing the `npx node-git-lfs` command in `server.sh` with `npx "github:Dermah/node-git-lfs#4b79bee4"`. This will use [a patched version of the server](https://github.com/kzwang/node-git-lfs/pull/6) that uses an updated request schema)
 
 Now we have this picture of a demolished Nexus 6P in all it's glory in the repository!
 
