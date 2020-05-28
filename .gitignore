@@ -1,5 +1,8 @@
-# Ignore build output
+# Ignore prod build output
 dist/
+
+# Ignore dev build output
+tmp/
 
 # Standard GitHub Node .gitignore
 # Logs

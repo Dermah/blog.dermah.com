@@ -136,7 +136,7 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "dist"
+      output: process.env.SERVE ? "tmp/build": "dist"
     }
   };
 };
