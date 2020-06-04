@@ -1,6 +1,9 @@
 /* Two equal column layout that collapses on mobile */
 
 .columns {
+  width: 100%;
+  max-width: unset;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
 }

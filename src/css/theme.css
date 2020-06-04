@@ -39,6 +39,9 @@ dd {
   margin-inline-start: 1ch;
 }
 
+/* --------------------------- */
+/* General code block styling! */
+
 code {
   background-color: #2b2b2b;
   color: #f8f8f2;
@@ -53,13 +56,20 @@ code {
   -webkit-box-decoration-break: clone;
 }
 
-pre[class*="language-"] {
-  margin: 1em 0;
-}
-
 /* Style terminal output slightly differently */
 pre.language-shell-session.terminal-box {
   background: #171717;
+}
+
+/* ---------------- */
+/* Article styling! */
+
+article > *,
+/* Overriding the same selector in the prisim theme */
+article > pre[class*="language-"] {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 article img {
