@@ -8,7 +8,8 @@
 
 html {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 h1,
@@ -17,13 +18,23 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Times New Roman", Times, serif;
-  line-height: 1.2;
+  line-height: 1.1;
+
   margin-top: 0;
 }
 
-article {
-  line-height: 1.6;
+h1,
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  color: #333333;
 }
 
 dt,
@@ -74,4 +85,11 @@ article > pre[class*="language-"] {
 
 article img {
   width: 100%;
+}
+
+article h3,
+article h4,
+article h5,
+article h6 {
+  margin-top: 4rem;
 }
