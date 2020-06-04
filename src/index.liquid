@@ -22,21 +22,21 @@ title: "blog.dermah.com | Index"
 </style>
 
 <header>
-  <h1>This is blog.dermah.com</h1>
-  <aside style="background-color: #eeeeff">
-    <img src="/img/watermelon.jpg" class="big-dumb-avatar" alt="A picture of a watermelon near my face, spinning indefinitely" />
-    <h2>Blog Status: <code>{{blogStatus}}</code></h2>
-    <ul>
-      <li><strong>HTML</strong>: Decent semantics</li>
-      <li><strong>Content</strong>: Long and rambly</li>
-      <li><strong>CSS</strong>: Yes look there I know the CSS ➡</li>
-      <li><strong>JS</strong>: Why bother at this point</li>
-      <li><strong>Infrastructure</strong>: Half baked (lol)</li>
-      <li><strong>SEO</strong>: Prepped for virality</li>
-      <li><strong>Tooling</strong>: Command line muscle memory</li>
-    </ul>
-  </aside>
+  <h1><small>This is</small> <strong>blog.dermah.com</strong></h1>
 </header>
+<aside class="blog-status" style="background-color: #eeeeff">
+  <img src="/img/watermelon.jpg" class="big-dumb-avatar" alt="A picture of a watermelon near my face, spinning indefinitely" />
+  <h3>Blog Status: <code>{{blogStatus}}</code></h3>
+  <ul>
+    <li><strong>HTML</strong>: Decent semantics</li>
+    <li><strong>Content</strong>: Long and rambly</li>
+    <li><strong>CSS</strong>: Yes look there I know the CSS ➡</li>
+    <li><strong>JS</strong>: Why bother at this point</li>
+    <li><strong>Infrastructure</strong>: Half baked (lol)</li>
+    <li><strong>SEO</strong>: Prepped for virality</li>
+    <li><strong>Tooling</strong>: Command line muscle memory</li>
+  </ul>
+</aside>
 
 
 {%- assign posts = collections.allPublicPosts | reverse -%}

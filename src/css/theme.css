@@ -66,8 +66,85 @@ ul li {
 /* Header and Footer */
 header,
 footer {
+  background-color: #000000;
+  color: #ffffff;
   padding: 1em;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+header {
+  height: 16.5vw;
+  margin-bottom: 2em;
+
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  min-height: 6rem;
+}
+footer {
+  margin-top: 2em;
+  position: relative;
+}
+header a,
+footer a {
+  color: #dddddd;
+}
+header h1,
+footer h2 {
+  text-transform: uppercase;
+}
+
+header small {
+  display: block;
+  font-size: calc(1vw * 2);
+  margin-bottom: 0.5rem;
+}
+header > h1 {
+  text-align: center;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: calc(10vw - 7px);
+  font-weight: 900;
+  margin: 0;
+  line-height: 0.55em;
+}
+
+footer {
+  padding-top: calc(10vw - 5px);
+}
+footer > h2 {
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: calc(10vw - 14px);
+  font-weight: 900;
+  margin: 0;
+  line-height: 0.65em;
+}
+
+/* Blog status */
+.blog-status {
   margin: 1em;
+  padding: 1em;
+}
+
+/* Navigation */
+nav {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 /* --------------------------- */
