@@ -132,6 +132,10 @@ footer > h2 {
   line-height: 0.65em;
 }
 
+ul {
+  padding-left: 0;
+}
+
 /* Blog status */
 .blog-status {
   margin: 1em;
@@ -162,6 +166,8 @@ code {
   /* Make the background look nice during line breaks */
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+
+  word-break: break-word;
 }
 
 /* Style terminal output slightly differently */
