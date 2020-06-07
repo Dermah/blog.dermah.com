@@ -15,11 +15,16 @@
   flex-direction: column;
 
   padding: 0 0.5em;
-  min-width: 80ch;
+  min-width: 700px;
 }
 
-@media (max-width: 80ch) {
+@media (max-width: 700px) {
+  .columns {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .half-column {
     min-width: 100%;
+    padding: 0;
   }
 }
