@@ -7,8 +7,8 @@
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-family: "museo-sans-condensed", Arial, Helvetica, sans-serif;
+  font-size: 24px;
   line-height: 1.7;
   margin: 0;
 }
@@ -100,7 +100,7 @@ footer h2 {
 
 header small {
   display: block;
-  font-size: calc(1vw * 2);
+  font-size: calc(3vw);
   margin-bottom: 0.5rem;
 }
 header > h1 {
@@ -110,14 +110,14 @@ header > h1 {
   bottom: 0;
   left: 0;
   width: 100%;
-  font-size: calc(10vw - 7px);
+  font-size: calc(12vw - 6px);
   font-weight: 900;
   margin: 0;
   line-height: 0.55em;
 }
 
 footer {
-  padding-top: calc(10vw - 5px);
+  padding-top: calc(13vw - 14px);
 }
 footer > h2 {
   text-align: center;
@@ -126,7 +126,7 @@ footer > h2 {
   top: 0;
   left: 0;
   width: 100%;
-  font-size: calc(10vw - 14px);
+  font-size: calc(13vw - 14px);
   font-weight: 900;
   margin: 0;
   line-height: 0.65em;
@@ -162,12 +162,16 @@ code {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
   /* Code fonts look a bit bigger than regular text? */
-  font-size: 90%;
+  font-size: 80%;
   /* Make the background look nice during line breaks */
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 
   word-break: break-word;
+}
+
+pre {
+  font-size: 80%;
 }
 
 /* Style terminal output slightly differently */
