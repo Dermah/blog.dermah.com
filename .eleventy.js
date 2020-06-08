@@ -133,6 +133,18 @@ module.exports = function(eleventyConfig) {
   // as their post
   eleventyConfig.addPassthroughCopy({"src/_posts/**/*.jpg": "img"});
 
+  eleventyConfig.addShortcode("headerBGStyle", function(coverOpts) {
+    if (coverOpts) {
+      return `background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('${
+        coverOpts.image
+      }');${
+        coverOpts["background-position"] ? `background-position: ${coverOpts["background-position"]}` : ""
+      }`
+
+    }
+    return ""
+  });
+
   return {
     dir: {
       input: "src",

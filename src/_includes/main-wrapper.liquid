@@ -39,7 +39,11 @@ blogStatus: Please update the docs
     <meta property="og:site_name" content="blog.dermah.com" />
     <meta property="og:type" content="{% if layout == 'post' %}article{% else %}website{% endif %}" />
     <meta property="og:url" content="https://blog.dermah.com{{page.url}}" />
-    <meta property="og:image" content="https://dermah.org/icons/dermah-org-12x.png" />
+    {% if cover.image %}
+    <meta property="og:image" content="https://blog.dermah.com{{cover.image}}" />
+    {% else %}
+    <meta property="og:image" content="https://blog.dermah.com/icons/dermah-org-12x.png" />
+    {% endif %}
 
     <link href="/css/index.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.typekit.net/plm4zcf.css">
