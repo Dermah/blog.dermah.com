@@ -31,7 +31,11 @@ blogStatus: Please update the docs
     <title>{% if layout == 'post' %}{{title}} | blog.dermah.com{% else %}{{title}}{% endif %}</title>
     <meta name="Description" content="{{description | strip}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if cover.image %}
+    <meta name="twitter:card" content="summary_large_image" />
+    {% else %}
     <meta name="twitter:card" content="summary" />
+    {% endif %}
     <meta name="twitter:site" content="@dermah" />
     <meta name="twitter:creator" content="@dermah" />
     <meta property="og:title" content="{{title}}" />
