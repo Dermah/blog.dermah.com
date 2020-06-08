@@ -55,3 +55,14 @@ Update the blog status, `git add` your changes then
 npm version minor -f -m "<blog status>"
 git push --follow-tags
 ```
+
+## Other Stuff
+
+### Stip metadata from all images in a directory
+
+```bash
+# brew install exiftool
+exiftool -all= *.jpg
+```
+
+Recommended max dimension: 1500px
