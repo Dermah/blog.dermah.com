@@ -63,6 +63,14 @@ ul li {
   margin-left: 1rem;
 }
 
+a {
+  color: #0000aa;
+}
+
+a:hover {
+  color: #0000ff;
+}
+
 /* Header and Footer */
 header,
 footer {
@@ -209,5 +217,11 @@ article h3,
 article h4,
 article h5,
 article h6 {
-  margin-top: 4rem;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
+article > p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
