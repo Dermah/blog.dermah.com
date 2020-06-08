@@ -135,7 +135,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addShortcode("headerBGStyle", function(coverOpts) {
     if (coverOpts) {
-      return `background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('${
+      return `background-image: linear-gradient(rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.5) calc(100% - 12vw), rgba(0, 0, 0, 1)), url('${
         coverOpts.image
       }');${
         coverOpts["background-position"] ? `background-position: ${coverOpts["background-position"]}` : ""

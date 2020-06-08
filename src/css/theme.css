@@ -96,7 +96,7 @@ header {
   background-size: cover;
 }
 footer {
-  margin-top: 2em;
+  margin-top: 6rem;
   position: relative;
 }
 header a,
@@ -148,7 +148,7 @@ ul {
 
 /* Blog status */
 .blog-status {
-  margin: 1em;
+  margin: 2rem 0.5rem;
   padding: 1em;
 }
 
