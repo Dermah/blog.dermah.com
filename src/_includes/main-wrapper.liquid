@@ -52,8 +52,12 @@ blogStatus: Please update the docs
     <link rel="preload" href="/css/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/css/index.css"></noscript>
 
+    {% comment %}
+    <!-- See css/typekit-hack.css, the font-display value is overridden until these people are appeased:
+    https://community.adobe.com/t5/adobe-fonts/possible-to-set-font-display-swap/td-p/10730659?page=1  -->
     <link rel="preload" href="https://use.typekit.net/plm4zcf.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://use.typekit.net/plm4zcf.css"></noscript>
+    {% endcomment %}
 
   </head>
   <body>
