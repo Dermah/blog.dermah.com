@@ -5,5 +5,10 @@ permalink: css/index.css
 
 {% include ./typekit-hack.css %}
 {% include ../../node_modules/prism-themes/themes/prism-a11y-dark.css %}
+{% comment %}
+This stuff gets inlined into the HTML for faster Speed Index
+https://web.dev/speed-index/?utm_source=lighthouse&utm_medium=devtools
+{% include ../css/_inlined.css %}
+{% endcomment %}
 {% include ./theme.css %}
 {% include ./demo-columns.css %}
