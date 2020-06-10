@@ -21,12 +21,12 @@ title: "blog.dermah.com | Index"
 }
 </style>
 
-<header>
+<header role="banner">
   <h1><small>This is</small> <strong>blog.dermah.com</strong></h1>
 </header>
 <aside class="blog-status" style="background-color: #eeeeff">
   <img src="/img/watermelon.jpg" class="big-dumb-avatar" alt="A picture of a watermelon near my face, spinning indefinitely" />
-  <h3>Blog Status: <code>{{blogStatus}}</code></h3>
+  <h2>Blog Status: <code>{{blogStatus}}</code></h2>
   <ul>
     <li><strong>HTML</strong>: Decent semantics</li>
     <li><strong>Content</strong>: Long and rambly</li>
@@ -37,16 +37,18 @@ title: "blog.dermah.com | Index"
     <li><strong>Tooling</strong>: Command line muscle memory</li>
   </ul>
 </aside>
+<main role="main">
 
 
-{%- assign posts = collections.allPublicPosts | reverse -%}
-{%- for post in posts -%}
-<article>
-  <h2><a href="{{post.url}}">Post: {{post.data.title}}</a></h2>
+  {%- assign posts = collections.allPublicPosts | reverse -%}
+  {%- for post in posts -%}
+  <article>
+    <h2><a href="{{post.url}}">Post: {{post.data.title}}</a></h2>
 
-  {{post.data.excerpt | renderUsingMarkdown | safe}}
+    {{post.data.excerpt | renderUsingMarkdown | safe}}
 
-  <div><a href="{{post.url}}">Continue reading &rarr;</a></div>
-</article>
-<hr />
-{%- endfor -%}
+    <div><a href="{{post.url}}" aria-label="Continue reading article: {{post.data.title}}">Continue reading &rarr;</a></div>
+  </article>
+  <hr />
+  {%- endfor -%}
+</main>

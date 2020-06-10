@@ -4,25 +4,27 @@ layout: main-wrapper
 # date: this is the publication date of the post
 ---
 
-<header style="{% headerBGStyle cover %}">
+<header role="banner" style="{% headerBGStyle cover %}">
   <h1><small>This is a post on </small> <strong>blog.dermah.com</strong></h1>
 </header>
-<nav>
+<nav role="navigation">
   <a href="/" >< Back To The Index</a>
 </nav>
 
-<article>
-  <h2>{{title}}</h2>
+<main role="main">
+  <article>
+    <h2>{{title}}</h2>
 
-  <dl>
-    {% if talk %}
-    <dt>Presented</dt>
-    <dd><time datetime="{{talk.date | date: '%Y-%m-%d'}}">{{talk.date | date: '%e %B %Y'}}</time></dd>
-    <br />
-    {% endif %}
+    <dl>
+      {% if talk %}
+      <dt>Presented</dt>
+      <dd><time datetime="{{talk.date | date: '%Y-%m-%d'}}">{{talk.date | date: '%e %B %Y'}}</time></dd>
+      <br />
+      {% endif %}
 
-    <dt>Published</dt>
-    <dd><time datetime="{{page.date | date: '%Y-%m-%d'}}">{{page.date | date: '%e %B %Y'}}</time></dd>
-  </dl>
-  {{content}}
-</article>
+      <dt>Published</dt>
+      <dd><time datetime="{{page.date | date: '%Y-%m-%d'}}">{{page.date | date: '%e %B %Y'}}</time></dd>
+    </dl>
+    {{content}}
+  </article>
+</main>

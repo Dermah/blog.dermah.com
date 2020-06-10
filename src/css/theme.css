@@ -151,6 +151,10 @@ ul {
   margin: 2rem 0.5rem;
   padding: 1em;
 }
+.blog-status h2 {
+  /* (actually h3 size) */
+  font-size: 1.5rem;
+}
 
 /* Navigation */
 nav {

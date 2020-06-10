@@ -56,7 +56,7 @@ blogStatus: Please update the docs
     
     {{content}}
 
-    <footer>
+    <footer role="contentinfo">
       <h2>This is the footer</h2>
       <p>I acknowledge the Gadigal people of the Eora Nation as the traditional owners and custodians of the land on which I live, work, and write this blog. I pay my respects to the Elders past, present and emerging.</p>
       <ul>
@@ -64,30 +64,32 @@ blogStatus: Please update the docs
         <li>See also: <a href="https://github.com/Dermah/blog.dermah.com">Source for this blog on GitHub</a></li>
         <li>Notice: 2019 - {{"now" | date: "%Y"}} © Sputnik/Dermah. Cobbled together using <a href="https://www.11ty.io/">11ty</a> in Sydney, Australia</li>
       </ul>
+
+      {%- unless environment.serve -%}
+      <!-- Default Statcounter code for blog.dermah.org  -->
+      <script type="text/javascript">
+        var sc_project = 12135697;
+        var sc_invisible = 1;
+        var sc_security = "d1a48557";
+      </script>
+      <script
+        type="text/javascript"
+        src="https://www.statcounter.com/counter/counter.js"
+        async
+      ></script>
+      <noscript
+        ><div class="statcounter">
+          <a title="Web Analytics" href="https://statcounter.com/" target="_blank"
+            ><img
+              class="statcounter"
+              src="https://c.statcounter.com/12135697/0/d1a48557/1/"
+              alt="Web Analytics"
+          /></a></div
+      ></noscript>
+      <!-- End of Statcounter Code -->
+      {% endunless %}
+
     </footer>
 
-    {%- unless environment.serve -%}
-    <!-- Default Statcounter code for blog.dermah.org  -->
-    <script type="text/javascript">
-      var sc_project = 12135697;
-      var sc_invisible = 1;
-      var sc_security = "d1a48557";
-    </script>
-    <script
-      type="text/javascript"
-      src="https://www.statcounter.com/counter/counter.js"
-      async
-    ></script>
-    <noscript
-      ><div class="statcounter">
-        <a title="Web Analytics" href="https://statcounter.com/" target="_blank"
-          ><img
-            class="statcounter"
-            src="https://c.statcounter.com/12135697/0/d1a48557/1/"
-            alt="Web Analytics"
-        /></a></div
-    ></noscript>
-    <!-- End of Statcounter Code -->
-    {% endunless %}
   </body>
 </html>
