@@ -102,6 +102,12 @@ This doesn't work because the server needs a [bunch of not-too-well-documented c
       "bucket": "blog.dermah.com",
       "region": "ap-southeast-2"
     }
+  },
+  "jwt": {
+    "algorithm": "HS256",
+    "secret": "node-git-lfs-jwt-test-key",
+    "issuer": "node-git-lfs",
+    "expiresIn": "30m"
   }
 }
 ```
