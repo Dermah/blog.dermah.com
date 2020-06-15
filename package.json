@@ -25,13 +25,13 @@
   },
   "homepage": "https://github.com/Dermah/blog.dermah.com#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "ansi-to-html": "^0.6.14",
-    "aws-cdk": "^1.18.0",
+    "aws-cdk": "^1.45.0",
     "node-git-lfs": "0.0.1"
   },
   "dependencies": {
-    "prism-themes": "^1.3.0"
+    "prism-themes": "^1.4.0"
   }
 }
