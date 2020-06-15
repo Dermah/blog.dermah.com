@@ -1,3 +1,9 @@
+/* This CSS gets shoved into the top of every HTML page.
+ * It should contain essential styles for styling the first visible
+ * part of the page
+ *
+ */
+
 /* General page styling */
 
 *,
@@ -137,4 +143,27 @@ code {
   -webkit-box-decoration-break: clone;
 
   word-break: break-word;
+}
+
+/* ---------- */
+/* Navigation */
+nav {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* ---------------- */
+/* Article styling! */
+
+article > *,
+/* Overriding the same selector in the prisim theme */
+article > pre[class*="language-"] {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }

@@ -31,11 +31,7 @@ blogStatus: Please update the docs
     <title>{% if layout == 'post' %}{{title}} | blog.dermah.com{% else %}{{title}}{% endif %}</title>
     <meta name="Description" content="{{description | strip}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% if cover.image %}
-    <meta name="twitter:card" content="summary_large_image" />
-    {% else %}
-    <meta name="twitter:card" content="summary" />
-    {% endif %}
+
     <meta name="twitter:site" content="@dermah" />
     <meta name="twitter:creator" content="@dermah" />
     <meta property="og:title" content="{{title}}" />
@@ -44,8 +40,10 @@ blogStatus: Please update the docs
     <meta property="og:type" content="{% if layout == 'post' %}article{% else %}website{% endif %}" />
     <meta property="og:url" content="https://blog.dermah.com{{page.url}}" />
     {% if cover.image %}
+    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:image" content="https://blog.dermah.com{{cover.image}}" />
     {% else %}
+    <meta name="twitter:card" content="summary" />
     <meta property="og:image" content="https://blog.dermah.com/icons/dermah-org-12x.png" />
     {% endif %}
 
@@ -53,6 +51,7 @@ blogStatus: Please update the docs
     {% include ../css/_inlined.css %}
     </style>
 
+    <!-- async loading of main stylesheet  -->
     <link rel="preload" href="/css/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/css/index.css"></noscript>
 

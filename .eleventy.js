@@ -133,6 +133,8 @@ module.exports = function(eleventyConfig) {
   // as their post
   eleventyConfig.addPassthroughCopy({"src/_posts/**/*.jpg": "img"});
 
+  // Spits out a some CSS styles based on the cover options of a post.
+  // Styles the header block with a cover image with gradient fade
   eleventyConfig.addShortcode("headerBGStyle", function(coverOpts) {
     if (coverOpts) {
       return `background-image: linear-gradient(rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.5) calc(100% - 12vw), rgba(0, 0, 0, 1)), url('${

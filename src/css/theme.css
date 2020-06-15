@@ -49,15 +49,6 @@ footer > h2 {
   line-height: 0.65em;
 }
 
-/* Navigation */
-nav {
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
 /* --------------------------- */
 /* General code block styling! */
 
@@ -70,25 +61,15 @@ pre.language-shell-session.terminal-box {
   background: #171717;
 }
 
-/* ---------------- */
-/* Article styling! */
-
-article > *,
-/* Overriding the same selector in the prisim theme */
-article > pre[class*="language-"] {
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
 @media (max-width: 700px) {
   /* remove border radius on small screens, making 100% width look better */
   pre[class*="language-"] {
     border-radius: 0;
   }
 }
+
+/* ---------------- */
+/* Article styling! */
 
 article img {
   width: 100%;
