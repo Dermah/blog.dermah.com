@@ -17,11 +17,31 @@ To push and pull Git LFS objects (`*.jpg`, `*.png`), you may need to be running 
 npm run lfs-server
 ```
 
-This assumes you have aws the AWS CLI and credentials configured for `--profile dermah`
+This assumes you have the AWS CLI and credentials configured for `--profile dermah`
+
+## Clone
+
+Using [my own lfs-server](https://blog.dermah.com/2020/05/26/how-to-be-stingy-git-lfs-on-your-own-s3-bucket/) has made this a chore. Just check out the lfs-server first:
+
+```bash
+git clone https://github.com/dermah/blog.dermah.com.git --no-checkout
+cd blog.dermah.com
+git checkout master package.json lfs-server/
+```
+
+Run the server in another terminal:
+
+```bash
+npm run lfs-server
+```
+
+Then check out everything else:
+
+```bash
+git checkout master .
+```
 
 ## Install
-
-Clone this! and then
 
 ```bash
 npm install
