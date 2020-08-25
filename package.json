@@ -29,6 +29,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "ansi-to-html": "^0.6.14",
     "aws-cdk": "^1.45.0",
+    "markdown-it-implicit-figures": "^0.10.0",
     "node-git-lfs": "0.0.1"
   },
   "dependencies": {

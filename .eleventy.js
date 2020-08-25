@@ -1,5 +1,7 @@
 const markdownIt = require("markdown-it");
+const implicitFigures = require('markdown-it-implicit-figures');
 const unescapeAll = require("markdown-it/lib/common/utils").unescapeAll;
+
 const Convert = require("ansi-to-html");
 const slugify = require('slugify');
 
@@ -9,7 +11,7 @@ module.exports = function(eleventyConfig) {
   // Define custom markdown-it so we can shove some custom rendering in
   const mdRender = new markdownIt({
     html: true
-  });
+  }).enable(['paragraph']).use(implicitFigures);
 
   // ### RENDER ANSI ESCAPE CODES IN `shell-session` OUTPUT USING SPANS
 
