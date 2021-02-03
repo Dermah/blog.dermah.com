@@ -3,6 +3,11 @@ title: Git Superpowers I – Lightning Talk
 layout: post
 talk:
   date: 2020-03-17
+comments:
+ tweet:
+   id: "1245354028617220097"
+   text: A new blog post, in which I try to recreate the magic of rebasing a git branch in front of a live studio audience, by showing some nicely formatted terminal output next to their commands. I estimate it captures ~55% of the magic.<a href="https://t.co/3Rk80hibXM">https://t.co/3Rk80hibXM</a>
+   dateText: "April 1, 2020"
 ---
 
 This is a lightning talk I gave [at work](https://hireup.com.au) to my colleagues about using Git. The DevOps & SRE team that I'm part of here keeps saying that knowing how to use Git gives you super powers. This lightning talk was an attempt to educate engineers about safety nets Git provides allowing you to make mistakes with confidence, and show real world use cases and workflows when working in teams.

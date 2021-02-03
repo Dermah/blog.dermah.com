@@ -4,6 +4,11 @@ layout: post
 cover:
   image: /img/2020-05-26-nexus-6p-destroyed.jpg
   background-position: bottom
+comments:
+  tweet:
+    id: "1265652253420998658"
+    text: It&#39;s time for more blog. In this one, I explain how to avoid giving money to a big corporation by giving less money to a different big corporation <a href="https://t.co/5OpqMdieMb">https://t.co/5OpqMdieMb</a>
+    dateString: May 27, 2020
 ---
 
 Being extremely stingy, I didn't want to use up any [Github Large File Storage quota](https://help.github.com/en/github/managing-large-files/about-storage-and-bandwidth-usage) on images/photos for this blog. Part of the reason for that is my delusion future-proofing (what if one day I've written so many posts that I have too many images here and I'll have to pay \$60 a year for extra storage argh). Lucky for me, it's possible to use S3 as a backend for LFS files while still using Github to store the code part of the repo.

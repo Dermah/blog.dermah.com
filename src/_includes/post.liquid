@@ -2,6 +2,12 @@
 permalink: "/{{ page.date | date: '%Y/%m/%d' }}/{{ title | slug }}/index.html"
 layout: main-wrapper
 # date: this is the publication date of the post
+#
+# comments:
+#  tweet:
+#    id: ""
+#    text: ""
+#    dateText: ""
 ---
 
 <header role="banner" style="{% headerBGStyle cover %}">
@@ -26,5 +32,24 @@ layout: main-wrapper
       <dd><time datetime="{{page.date | date: '%Y-%m-%d'}}">{{page.date | date: '%e %B %Y'}}</time></dd>
     </dl>
     {{content}}
+
+  <hr />
+  <section class="comments">
+    <h2><span>Comments</span></h2>
+
+    <p><small>Instead of building a comments section, I've offloaded that job to twitter. You can {% if comments.tweet.id %}reply to this tweet about the post, or{% endif %} just tweet <a href="https://twitter.com/Dermah">@Dermah</a>.</small></p>
+
+    {% if comments.tweet %}
+    <blockquote class="twitter-tweet" data-dnt="true" data-theme="light" data-related="Dermah">
+      <p lang="en" dir="ltr">
+        {{ comments.tweet.text }}
+      </p>&mdash; Sputnik (@Dermah) <a href="https://twitter.com/Dermah/status/{{ comments.tweet.id }}?ref_src=twsrc%5Etfw">{{ comments.tweet.dateString }}</a>
+    </blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    {% endif %}
+
+  </section>
+
   </article>
+
 </main>

@@ -4,6 +4,11 @@ layout: post
 cover:
   image: /img/2020-06-08-blm-08.jpg
   background-position: bottom
+comments:
+  tweet:
+    id: "1270014788366548992"
+    text: Quick recount and photos of the <a href="https://twitter.com/hashtag/blacklivesmatteraustralia?src=hash&amp;ref_src=twsrc%5Etfw">#blacklivesmatteraustralia</a> rally in Sydney this past Saturday <a href="https://t.co/h7wJbgwTNc">https://t.co/h7wJbgwTNc</a>
+    dateString: June 8, 2020
 ---
 
 This past Saturday in Sydney, 20 000 people turned up to rally in solidarity with the Black Lives Matter protests that have rippled across America in the last couple of weeks. The killing of George Floyd bears an uncomfortably striking resemblance to the death of an Aboriginal man named David Dungay Jr in 2015. Australia has it's own [terrible history of Black deaths at the hands of authorities](https://www.theguardian.com/australia-news/ng-interactive/2018/aug/28/deaths-inside-indigenous-australian-deaths-in-custody). This rally called for justice for all these lives lost, and for an end to the systems that perpetuate violence and racism against First Nations and Black people.

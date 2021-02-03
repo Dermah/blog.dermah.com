@@ -1,3 +1,9 @@
+blockquote {
+  margin-left: 0;
+  padding-left: 1rem;
+  border-left: 10px solid #000000
+}
+
 dt,
 dd {
   display: inline;
@@ -52,6 +58,10 @@ footer > h2 {
   line-height: 0.65em;
 }
 
+hr {
+  border: 2px solid #000000;
+}
+
 /* --------------------------- */
 /* General code block styling! */
 
@@ -74,7 +84,8 @@ pre.language-shell-session.terminal-box {
 /* ---------------- */
 /* Article styling! */
 
-article > h2 > span {
+article > h2 > span,
+article > .comments > h2 > span {
   color: #ffffff;
   padding-left: 0.21rem;
   padding-right: 0.21rem;
@@ -101,6 +112,12 @@ article > p {
   margin-bottom: 2rem;
 }
 
+article > hr {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+/* ---------------- */
 /* Main page styling */
 
 .homepage > article > h2 > a {
