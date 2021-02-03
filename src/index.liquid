@@ -37,9 +37,8 @@ title: "blog.dermah.com | Index"
     <li><strong>Tooling</strong>: Command line muscle memory</li>
   </ul>
 </aside>
-<main role="main">
 
-
+<main class="homepage" role="main">
   {%- assign posts = collections.allPublicPosts | reverse -%}
   {%- for post in posts -%}
   <article>
@@ -47,8 +46,9 @@ title: "blog.dermah.com | Index"
 
     {{post.data.excerpt | renderUsingMarkdown | safe}}
 
-    <div><a href="{{post.url}}" aria-label="Continue reading article: {{post.data.title}}">Continue reading &rarr;</a></div>
+    <div>
+      <a href="{{post.url}}" aria-label="Continue reading article: {{post.data.title}}">Continue reading &rarr;</a>
+    </div>
   </article>
-  <hr />
   {%- endfor -%}
 </main>

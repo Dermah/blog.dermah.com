@@ -28,6 +28,9 @@ footer {
 footer a {
   color: #dddddd;
 }
+footer a:hover {
+  color: #aaaaaa;
+}
 
 footer h2 {
   text-transform: uppercase;
@@ -71,6 +74,16 @@ pre.language-shell-session.terminal-box {
 /* ---------------- */
 /* Article styling! */
 
+article > h2 > span {
+  color: #ffffff;
+  padding-left: 0.21rem;
+  padding-right: 0.21rem;
+  padding-bottom: 0.11rem;
+  background-color: #000000;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 article img {
   width: 100%;
 }
@@ -86,4 +99,34 @@ article h6 {
 article > p {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+/* Main page styling */
+
+.homepage > article > h2 > a {
+  color: #ffffff;
+  text-decoration: underline;
+
+  line-height: normal;
+
+  padding-left: 0.21rem;
+  padding-right: 0.21rem;
+  padding-bottom: 0.11rem;
+  background-color: #000000;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.homepage > article > h2 > a:hover {
+  color: #aaaaaa;
+}
+
+.homepage > article {
+  margin-bottom: 4em;
+}
+
+.homepage > hr {
+  background-color: #000000;
+  padding: 2em;
+  border: none;
 }

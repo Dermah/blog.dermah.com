@@ -62,10 +62,11 @@ ul li {
 
 a {
   color: #0000aa;
+  transition: color 0.5s cubic-bezier(.23,1,.32,1);
 }
 
 a:hover {
-  color: #0000ff;
+  color: #0101ff;
 }
 
 /* Header */
@@ -120,6 +121,7 @@ header > h1 {
 /* Blog status */
 .blog-status {
   margin: 2rem 0.5rem;
+  margin-bottom: 5rem;
   padding: 1em;
 }
 .blog-status h2 {
