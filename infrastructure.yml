@@ -1,0 +1,279 @@
+Parameters:
+  DomainName:
+    Type: String
+    Description: Domain name to create resources for
+  BYOHostedZoneID:
+    Type: String
+    Default: ""
+    Description: >-
+      Specify an existing HostedZone's ID to prevent creation of a new one.
+      RecordSets for the Distribution and Certificate will be created in it.
+  WWWRedirection:
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+    Default: "false"
+    Description: >-
+      Create infrastructure to redirect http[s]://www.${DomainName} to https://${DomainName}.
+      Creates another CloudFront distribution backed by an S3 redirect bucket.
+      You will need to manually add the a record from the ACM Console, see:
+      https://console.aws.amazon.com/acm/home?region=us-east-1#/
+  TestDomain:
+    Type: String
+    AllowedValues:
+      - "true"
+      - "false"
+    Default: "false"
+    Description: >-
+      Create infrastructure for a preprod domain at http[s]://test.${DomainName}.
+      Creates a test CloudFront distribution, S3 bucket, certificate and record set.
+
+Conditions:
+  CreateHostedZone:
+    !Equals [!Ref BYOHostedZoneID, ""]
+  CreateWWWRedirectInfra:
+    !Equals [!Ref WWWRedirection, "true"]
+  CreateTestInfra:
+    !Equals [!Ref TestDomain, "true"]
+
+Resources:
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      WebsiteConfiguration:
+        IndexDocument: index.html
+
+  BucketPublicReadPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref Bucket
+      PolicyDocument:
+        Statement:
+          - Sid: "PublicReadGetObject"
+            Effect: Allow
+            Principal: "*"
+            Action: s3:GetObject
+            Resource: !Sub arn:aws:s3:::${Bucket}/*
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+          - !Sub ${DomainName}
+        # CacheBehaviors:
+        #   - CacheBehavior
+        Comment: !Sub ${DomainName}
+        # CustomErrorResponses:
+        #   - CustomErrorResponse
+        DefaultCacheBehavior:
+          # AllowedMethods:
+          #   - GET
+          #   - HEAD
+          # CachedMethods:
+          #   - GET
+          #   - HEAD
+          Compress: true
+          # DefaultTTL: Double
+          ForwardedValues:
+            QueryString: false
+          # MaxTTL: Double
+          # MinTTL: Double
+          # OriginRequestPolicyId: String
+          TargetOriginId: S3Bucket
+          ViewerProtocolPolicy: redirect-to-https
+        DefaultRootObject: index.html
+        Enabled: true
+        HttpVersion: http2
+        Origins:
+          - DomainName: !Select [1, !Split ["//", !GetAtt Bucket.WebsiteURL]]
+            Id: S3Bucket
+            CustomOriginConfig:
+              OriginProtocolPolicy: http-only
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          MinimumProtocolVersion: TLSv1.2_2019
+          SslSupportMethod: sni-only
+
+  HostedZone:
+    Condition: CreateHostedZone
+    Type: AWS::Route53::HostedZone
+    Properties:
+      HostedZoneConfig:
+        Comment: !Sub ${DomainName}
+      Name: !Sub ${DomainName}
+
+  RecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      AliasTarget:
+        DNSName: !GetAtt Distribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+      Comment: !Sub Pointing to ${Distribution} CloudFront distribution
+      HostedZoneId: !If [CreateHostedZone, !Ref HostedZone, !Ref BYOHostedZoneID]
+      Name: !Sub ${DomainName}
+      Type: A
+
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Sub ${DomainName}
+      DomainValidationOptions:
+        - DomainName: !Sub ${DomainName}
+          HostedZoneId: !If [CreateHostedZone, !Ref HostedZone, !Ref BYOHostedZoneID]
+      ValidationMethod: DNS
+      SubjectAlternativeNames: !If
+        - CreateWWWRedirectInfra
+        - - !Sub www.${DomainName}
+        - !Ref AWS::NoValue
+
+# ----- Test Infra
+
+  TestBucket:
+    Condition: CreateTestInfra
+    Type: AWS::S3::Bucket
+    Properties:
+      WebsiteConfiguration:
+        IndexDocument: index.html
+
+  TestBucketPublicReadPolicy:
+    Condition: CreateTestInfra
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref TestBucket
+      PolicyDocument:
+        Statement:
+          - Sid: "PublicReadGetObject"
+            Effect: Allow
+            Principal: "*"
+            Action: s3:GetObject
+            Resource: !Sub arn:aws:s3:::${TestBucket}/*
+
+  TestDistribution:
+    Condition: CreateTestInfra
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+          - !Sub test.${DomainName}
+        # CacheBehaviors:
+        #   - CacheBehavior
+        Comment: !Sub ${DomainName} test distribution
+        # CustomErrorResponses:
+        #   - CustomErrorResponse
+        DefaultCacheBehavior:
+          # AllowedMethods:
+          #   - GET
+          #   - HEAD
+          # CachedMethods:
+          #   - GET
+          #   - HEAD
+          Compress: true
+          # DefaultTTL: Double
+          ForwardedValues:
+            QueryString: false
+          # MaxTTL: Double
+          # MinTTL: Double
+          # OriginRequestPolicyId: String
+          TargetOriginId: S3Bucket
+          ViewerProtocolPolicy: redirect-to-https
+        DefaultRootObject: index.html
+        Enabled: true
+        HttpVersion: http2
+        Origins:
+          - DomainName: !Select [1, !Split ["//", !GetAtt TestBucket.WebsiteURL]]
+            Id: S3Bucket
+            CustomOriginConfig:
+              OriginProtocolPolicy: http-only
+        ViewerCertificate:
+          AcmCertificateArn: !Ref TestCertificate
+          MinimumProtocolVersion: TLSv1.2_2019
+          SslSupportMethod: sni-only
+
+  TestRecordSet:
+    Condition: CreateTestInfra
+    Type: AWS::Route53::RecordSet
+    Properties:
+      AliasTarget:
+        DNSName: !GetAtt TestDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+      Comment: !Sub Pointing to ${TestDistribution} CloudFront distribution
+      HostedZoneId: !If [CreateHostedZone, !Ref HostedZone, !Ref BYOHostedZoneID]
+      Name: !Sub test.${DomainName}
+      Type: A
+
+  TestCertificate:
+    Condition: CreateTestInfra
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Sub test.${DomainName}
+      DomainValidationOptions:
+        - DomainName: !Sub test.${DomainName}
+          HostedZoneId: !If [CreateHostedZone, !Ref HostedZone, !Ref BYOHostedZoneID]
+      ValidationMethod: DNS
+
+# ----- WWW Redirect Infra
+
+  RedirectBucket:
+    Condition: CreateWWWRedirectInfra
+    Type: AWS::S3::Bucket
+    Properties:
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: !Ref DomainName
+          Protocol: https
+
+  RedirectDistribution:
+    Condition: CreateWWWRedirectInfra
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+          - !Sub www.${DomainName}
+        Comment: !Sub ${DomainName} www redirect
+        DefaultCacheBehavior:
+          Compress: true
+          ForwardedValues:
+            QueryString: false
+          TargetOriginId: S3Bucket
+          ViewerProtocolPolicy: redirect-to-https
+        DefaultRootObject: index.html
+        Enabled: true
+        HttpVersion: http2
+        Origins:
+          - DomainName: !Select [1, !Split ["//", !GetAtt RedirectBucket.WebsiteURL]]
+            Id: S3Bucket
+            CustomOriginConfig:
+              OriginProtocolPolicy: http-only
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          MinimumProtocolVersion: TLSv1.2_2019
+          SslSupportMethod: sni-only
+
+  RedirectRecordSet:
+    Condition: CreateWWWRedirectInfra
+    Type: AWS::Route53::RecordSet
+    Properties:
+      AliasTarget:
+        DNSName: !GetAtt RedirectDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+      Comment: !Sub Pointing to ${Distribution} CloudFront distribution
+      HostedZoneId: !If [CreateHostedZone, !Ref HostedZone, !Ref BYOHostedZoneID]
+      Name: !Sub www.${DomainName}
+      Type: A
+
+
+Outputs:
+  BucketName:
+    Value: !Ref Bucket
+  DistributionID:
+    Value: !Ref Distribution
+  DistributionURL:
+    Value: !GetAtt Distribution.DomainName
+  TestBucketName:
+    Value: !If [CreateTestInfra, !Ref TestBucket, ""]
+  TestDistributionID:
+    Value: !If [CreateTestInfra, !Ref TestDistribution, ""]
+  TestDistributionURL:
+    Value: !If [CreateTestInfra, !GetAtt TestDistribution.DomainName, ""]

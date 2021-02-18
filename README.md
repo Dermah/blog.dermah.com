@@ -86,3 +86,52 @@ exiftool -all= *.jpg
 ```
 
 Recommended max dimension: 1500px
+
+---
+## Infrastructure
+
+You'll need the [AWS CLI](https://aws.amazon.com/cli/) installed and configured.
+
+CloudFront can only use ACM certificates from the `us-east-1` region, so this stack must be deployed there. Set this environment variable to operate in `us-east-1`:
+
+```bash
+AWS_REGION=us-east-1
+```
+
+### Validate
+
+```bash
+aws cloudformation validate-template --template-body file://infrastructure.yml
+```
+
+### Create
+
+```bash
+# BYOHostedZoneID=<Existing Hosted Zone>
+aws cloudformation create-stack --template-body file://infrastructure.yml --stack-name blog-dermah-com --parameters \
+  ParameterKey=DomainName,ParameterValue=blog.dermah.com \
+  ParameterKey=BYOHostedZoneID,ParameterValue=$BYOHostedZoneID
+aws cloudformation wait stack-create-complete --stack-name blog-dermah-com
+aws cloudformation describe-stacks --stack-name blog-dermah-com
+```
+
+### Diff
+```bash
+aws cloudformation get-template --stack-name blog-dermah-com --query TemplateBody --output text | diff infrastructure.yml -
+```
+### Update
+
+```bash
+aws cloudformation update-stack --template-body file://infrastructure.yml --stack-name blog-dermah-com --parameters \
+  ParameterKey=DomainName,UsePreviousValue=true \
+  ParameterKey=BYOHostedZoneID,UsePreviousValue=true
+aws cloudformation wait stack-update-complete --stack-name blog-dermah-com
+```
+
+### Describe
+
+```bash
+aws cloudformation describe-stacks --stack-name blog-dermah-com
+aws cloudformation describe-stacks --stack-name blog-dermah-com --query "Stacks[0].Outputs"
+aws cloudformation describe-stack-events --stack-name blog-dermah-com --query "StackEvents[*].{ID:LogicalResourceId,Type:ResourceType,Status:ResourceStatus,Time:Timestamp,Reason:ResourceStatusReason}"
+```
