@@ -117,7 +117,7 @@ aws cloudformation describe-stacks --stack-name blog-dermah-com
 
 ### Diff
 ```bash
-aws cloudformation get-template --stack-name blog-dermah-com --query TemplateBody --output text | diff infrastructure.yml -
+aws cloudformation get-template --stack-name blog-dermah-com --query TemplateBody --output text | git diff --no-index - infrastructure.yml
 ```
 ### Update
 
