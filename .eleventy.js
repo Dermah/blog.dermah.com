@@ -131,7 +131,10 @@ module.exports = function(eleventyConfig) {
   // until 11ty/eleventy#379 is decided on, at which point this and all
   // posts will need refactoring allow images to stay in the same folder
   // as their post
-  eleventyConfig.addPassthroughCopy({"src/_posts/**/*.jpg": "img"});
+  eleventyConfig.addPassthroughCopy({
+    "src/_posts/**/*.jpg": "img",
+    "src/_posts/**/*.png": "img"
+  });
 
   // Spits out a some CSS styles based on the cover options of a post.
   // Styles the header block with a cover image with gradient fade
