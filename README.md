@@ -68,6 +68,14 @@ npm run build
 npm run filediff
 ```
 
+If you want to see the diff of the file contents:
+
+```bash
+npm run diff
+# Or do this if you've already downloaded the bucket recently:
+# npm run diff -- --show-only
+```
+
 ## Deploy
 
 ```bash
