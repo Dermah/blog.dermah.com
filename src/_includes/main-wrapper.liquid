@@ -5,7 +5,8 @@ blogStatus: Violates brand guidelines
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    {% unless environment.serve %}
+
+    {%- unless environment.serve %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -22,11 +23,11 @@ blogStatus: Violates brand guidelines
     <!-- End global site tag-->
     {%- endunless -%}
 
-    {% if excerpt %}
-      {% assign description = excerpt %}
-    {% else %}
-      {% assign description = "An incrementally improving blog featuring mostly software engineering stuff, but we'll see what else happens." %}
-    {% endif %}
+    {%- if excerpt %}
+      {%- assign description = excerpt %}
+    {%- else %}
+      {%- assign description = "An incrementally improving blog featuring mostly software engineering stuff, but we'll see what else happens." %}
+    {%- endif %}
 
     <title>{% if layout == 'post' %}{{title}} | blog.dermah.com{% else %}{{title}}{% endif %}</title>
     <meta name="Description" content="{{description | strip}}">
@@ -39,13 +40,13 @@ blogStatus: Violates brand guidelines
     <meta property="og:site_name" content="blog.dermah.com" />
     <meta property="og:type" content="{% if layout == 'post' %}article{% else %}website{% endif %}" />
     <meta property="og:url" content="https://blog.dermah.com{{page.url}}" />
-    {% if cover.image %}
+    {%- if cover.image %}
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:image" content="https://blog.dermah.com{{cover.image}}" />
-    {% else %}
+    {%- else %}
     <meta name="twitter:card" content="summary" />
     <meta property="og:image" content="https://blog.dermah.com/icons/dermah-org-12x.png" />
-    {% endif %}
+    {%- endif %}
 
     <style>
     {% include ../css/_inlined.css %}
@@ -55,12 +56,12 @@ blogStatus: Violates brand guidelines
     <link rel="preload" href="/css/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/css/index.css"></noscript>
 
-    {% comment %}
+    {%- comment %}
     <!-- See css/typekit-hack.css, the font-display value is overridden until these people are appeased:
     https://community.adobe.com/t5/adobe-fonts/possible-to-set-font-display-swap/td-p/10730659?page=1  -->
     <link rel="preload" href="https://use.typekit.net/plm4zcf.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://use.typekit.net/plm4zcf.css"></noscript>
-    {% endcomment %}
+    {%- endcomment %}
 
   </head>
   <body>

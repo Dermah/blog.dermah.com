@@ -39,14 +39,14 @@ layout: main-wrapper
 
     <p><small>Instead of building a comments section, I've offloaded that job to twitter. You can {% if comments.tweet.id %}reply to this tweet about the post, or{% endif %} just tweet <a href="https://twitter.com/Dermah">@Dermah</a>.</small></p>
 
-    {% if comments.tweet %}
+    {%- if comments.tweet %}
     <blockquote class="twitter-tweet" data-dnt="true" data-theme="light" data-related="Dermah">
       <p lang="en" dir="ltr">
         {{ comments.tweet.text }}
       </p>&mdash; Sputnik (@Dermah) <a href="https://twitter.com/Dermah/status/{{ comments.tweet.id }}?ref_src=twsrc%5Etfw">{{ comments.tweet.dateString }}</a>
     </blockquote>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    {% endif %}
+    {%- endif %}
 
   </section>
 
