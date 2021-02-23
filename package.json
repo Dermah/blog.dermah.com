@@ -7,6 +7,7 @@
     "build": "rm -rf dist/ && npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "SERVE=true npx @11ty/eleventy --serve",
+    "filediff": "bash scripts/filediff.sh",
     "deploy": "aws --profile dermah s3 sync --acl public-read ./dist s3://blog.dermah.com",
     "decache": "aws --profile dermah cloudfront create-invalidation --distribution-id E1XQ0JZXRLB5H7 --paths '/*' '/index.html' '/css/index.css'",
     "lfs-server": "(cd lfs-server && ./server.sh)"

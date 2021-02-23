@@ -59,6 +59,15 @@ npm run serve
 npm run build
 ```
 
+## Pre-deploy File Diff
+
+* Files present on S3 but not in `dist/` are red.
+* New files to deploy to S3 are green.
+
+```bash
+npm run filediff
+```
+
 ## Deploy
 
 ```bash
