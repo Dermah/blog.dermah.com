@@ -4,7 +4,7 @@
   "description": "Static site blog src for blog.dermah.com",
   "main": "index.js",
   "scripts": {
-    "build": "npx @11ty/eleventy",
+    "build": "rm -rf dist/ && npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "SERVE=true npx @11ty/eleventy --serve",
     "deploy": "aws --profile dermah s3 sync --acl public-read ./dist s3://blog.dermah.com",
