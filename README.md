@@ -144,3 +144,15 @@ aws cloudformation describe-stacks --stack-name blog-dermah-com
 aws cloudformation describe-stacks --stack-name blog-dermah-com --query "Stacks[0].Outputs"
 aws cloudformation describe-stack-events --stack-name blog-dermah-com --query "StackEvents[*].{ID:LogicalResourceId,Type:ResourceType,Status:ResourceStatus,Time:Timestamp,Reason:ResourceStatusReason}"
 ```
+
+---
+
+## Writing
+
+### Write a draft post
+
+Do this in your post front matter
+```yaml
+draft: true        # removes the item from collections
+permalink: false   # does not output the file during build
+```
