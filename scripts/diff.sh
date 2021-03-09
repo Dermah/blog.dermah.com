@@ -9,7 +9,7 @@ if [ "$1" != "--show-only" ]; then
   BUCKET_NAME=$(aws cloudformation describe-stacks --stack-name blog-dermah-com --query 'Stacks[0].Outputs[?OutputKey==`BucketName`].{V:OutputValue}[0].V' --output text)
 
   # Dump all files in bucket to disk
-  # rm -rf ./tmp/s3
+  rm -rf ./tmp/s3
   aws s3 sync s3://$BUCKET_NAME ./tmp/s3
 
 fi
