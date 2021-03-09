@@ -2,7 +2,7 @@
 title: "Tips for Building Infrastructure in CloudFormation"
 layout: post
 cover:
-  image: /img/2021-02-22-web-and-cli.png
+  image: /img/2021-03-09-web-and-cli.png
   background-position: top
 ---
 
@@ -12,7 +12,7 @@ Here's some general tips for improving your workflow when building infrastructur
 
 ### Get comfortable with the CloudFormation web console. Then use the command line for quick stuff.
 
-![Screenshot of the AWS CloudFormation web console, and the CloudFormation CLI](/img/2021-02-22-web-and-cli.png)
+![Screenshot of the AWS CloudFormation web console, and the CloudFormation CLI](/img/2021-03-09-web-and-cli.png)
 
 As with any AWS service: if you don't know how it works, just [use the web console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console.html) for a while. This will help you figure out the service's intended use and makes visualising how it works much easier. The same goes for using CloudFormation: the console is the easiest way to visualise the creation of resources and flow of events in response to changes you make.
 
