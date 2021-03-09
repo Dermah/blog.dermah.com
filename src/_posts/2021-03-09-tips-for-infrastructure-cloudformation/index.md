@@ -4,6 +4,11 @@ layout: post
 cover:
   image: /img/2021-03-09-web-and-cli.png
   background-position: top
+comments:
+  tweet:
+    id: "1369262520603607040"
+    text: Here&#39;s a collection of random tips for getting better at <a href="https://twitter.com/hashtag/CloudFormation?src=hash&amp;ref_src=twsrc%5Etfw">#CloudFormation</a>, curated between mashing the refresh button as my stack deployed<a href="https://t.co/74W0fYzD4X">https://t.co/74W0fYzD4X</a>
+    dateString: March 9, 2021
 ---
 
 Here's some general tips for improving your workflow when building infrastructure with AWS CloudFormation. This page assumes you've already picked up some of the basics of CloudFormation. If you haven't, the [Getting Started guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.html) and a bit of practice is a good place to start.
