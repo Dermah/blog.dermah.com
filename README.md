@@ -17,7 +17,7 @@ To push and pull Git LFS objects (`*.jpg`, `*.png`), you may need to be running 
 npm run lfs-server
 ```
 
-This assumes you have the AWS CLI and credentials configured for `--profile dermah`
+This assumes you have the AWS CLI and credentials configured. Try using [`aws-vault`](https://github.com/99designs/aws-vault) to manage many profiles.
 
 ## Clone
 
