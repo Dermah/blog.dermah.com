@@ -1,0 +1,66 @@
+---
+permalink: "/{{ page.date | date: '%Y/%m/%d' }}/{{ title | slug }}/index.html"
+layout: main-wrapper
+# date: this is first publication date of the post
+# updates
+# - a list of dates that this has been updated on
+# comments:
+#  tweet:
+#    id: ""
+#    text: ""
+#    dateText: ""
+---
+
+<header role="banner" style="{% headerBGStyle cover %} eternal-draft">
+  <h1><small>This could one day be a fully completed post on </small> <strong>blog.dermah.com</strong></h1>
+</header>
+<nav role="navigation">
+  <a href="/" >< Back To The Index</a>
+</nav>
+
+<main role="main">
+  <article>
+    <h2><span>{{title}}</span></h2>
+
+    <dl>
+      {% if talk %}
+      <dt>Presented</dt>
+      <dd><time datetime="{{talk.date | date: '%Y-%m-%d'}}">{{talk.date | date: '%e %B %Y'}}</time></dd>
+      <br />
+      {% endif %}
+
+      <dt>First started</dt>
+      <dd><time datetime="{{page.date | date: '%Y-%m-%d'}}">{{page.date | date: '%e %B %Y'}}</time></dd>
+
+      {% if updates %}
+      <br />
+      <dt>Total updates</dt>
+      <dd>{{updates.length}}</dd>
+
+      <br />
+      <dt>Last updated</dt>
+      <dd><time datetime="{{updates | last | date: '%Y-%m-%d'}}">{{updates | last | date: '%e %B %Y'}}</time></dd>
+      {% endif %}
+    </dl>
+    {{content}}
+
+  <hr />
+  <section class="comments">
+    <h2><span>Comments</span></h2>
+
+    <p><small>Instead of building a comments section, I've offloaded that job to twitter. You can {% if comments.tweet.id %}reply to this tweet about the post, or{% endif %} just tweet <a href="https://twitter.com/Dermah">@Dermah</a>.</small></p>
+
+    {%- if comments.tweet %}
+    <blockquote class="twitter-tweet" data-dnt="true" data-theme="light" data-related="Dermah">
+      <p lang="en" dir="ltr">
+        {{ comments.tweet.text }}
+      </p>&mdash; Sputnik (@Dermah) <a href="https://twitter.com/Dermah/status/{{ comments.tweet.id }}?ref_src=twsrc%5Etfw">{{ comments.tweet.dateString }}</a>
+    </blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    {%- endif %}
+
+  </section>
+
+  </article>
+
+</main>
