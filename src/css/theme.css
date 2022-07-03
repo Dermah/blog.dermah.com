@@ -4,6 +4,11 @@ blockquote {
   border-left: 10px solid #000000
 }
 
+dl {
+  background-color: #eeeeff;
+  margin-bottom: 3rem;
+}
+
 dt,
 dd {
   display: inline;

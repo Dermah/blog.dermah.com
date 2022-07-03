@@ -11,8 +11,8 @@ layout: main-wrapper
 #    dateText: ""
 ---
 
-<header role="banner" style="{% headerBGStyle cover %} eternal-draft">
-  <h1><small>This could one day be a fully completed post on </small> <strong>blog.dermah.com</strong></h1>
+<header role="banner" style="{% headerBGStyle cover %}">
+  <h1><small>This is unlikely to ever be a fully completed post on </small> <strong>blog.dermah.com</strong></h1>
 </header>
 <nav role="navigation">
   <a href="/" >< Back To The Index</a>
@@ -23,6 +23,10 @@ layout: main-wrapper
     <h2><span>{{title}}</span></h2>
 
     <dl>
+      <dt>Eternal Draft 🤨</dt>
+      <dd>This post is more like a <a target="_blank" href="https://en.wikipedia.org/wiki/Living_document">living document</a>, it get's added to and updated over a long time</dd>
+      <br />
+
       {% if talk %}
       <dt>Presented</dt>
       <dd><time datetime="{{talk.date | date: '%Y-%m-%d'}}">{{talk.date | date: '%e %B %Y'}}</time></dd>
