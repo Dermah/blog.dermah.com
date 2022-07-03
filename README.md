@@ -95,7 +95,7 @@ git push --follow-tags
 
 ## Other Stuff
 
-### Stip metadata from all images in a directory
+### Strip metadata from all images in a directory
 
 ```bash
 # brew install exiftool
