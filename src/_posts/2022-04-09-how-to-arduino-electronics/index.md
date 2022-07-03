@@ -4,6 +4,10 @@ layout: eternal-draft
 date: 2022-04-09
 updates:
   - 2022-04-26
+  - 2022-06-03
+cover:
+  image: /img/2022-04-09-arduino-mess.jpg
+  background-position: bottom
 # comments:
 #   tweet:
 #     id: "1369262520603607040"
@@ -11,7 +15,7 @@ updates:
 #     dateString: March 9, 2021
 ---
 
-I pull out an Arduino and try to do electronics stuff about once a year. That's a short enough period to fool me into thinking I can knock something together easily, but not short enough for me to retain any useful memory of how electronics work. This is an attempt to retain information for myself next time.
+I pull out an Arduino to try doing electronics stuff about once a year. That's a short enough period to fool me into thinking I can knock something together easily, but not short enough for me to retain any useful memory of how electronics work. This is an attempt to retain information for myself next time.
 
 <!-- excerpt -->
 
@@ -43,7 +47,7 @@ Pin reference:
 
 Use a 10k ohm resister across the signal and 5V pins, [apparently to smooth out the signal](https://forum.arduino.cc/t/really-simple-question-why-i-need-a-pull-up-resistor/391925).
 
-30 gauss activation? Check magnets.
+30 gauss activation strength of the magnets? Check your magnet strength.
 
 Some code that will fire an "interrupt" when the Hall Effect sensor is connected to Arduino pin 2, and the sensor detects a magnet:
 
@@ -80,22 +84,26 @@ Variables referenced inside interrupts should be `volatile` [for some reason](ht
 
 Got a [WS2812B strip](https://www.amazon.com.au/dp/B019DYZNO6/ref=pe_2361882_282382012_TE_item?th=1) online, it was $18 when I bought it, now seems to be $43??
 
-- [This article mentions some safety tips your LED strip](https://learn.sparkfun.com/tutorials/ws2812-breakout-hookup-guide/hardware-hookup)
-  - Capacitor: add a 100 - 1000 µF capacitor across the power and ground pins, close to LED strip
+- [This article mentions some safety tips for your LED strip](https://learn.sparkfun.com/tutorials/ws2812-breakout-hookup-guide/hardware-hookup)
+  - Capacitor: add a 100 - 1000 µF capacitor across the power and ground pins, close to the LED strip
   - Resistor: add a 220 - 470 ohms resistor between the Arduino signal out and the LED strip data line
 
 ### External power for Arduino Uno and LEDs
 
 [MP-3480](https://www.jaycar.com.au/5v-dc-3a-slim-power-supply-7dc-plugs/p/MP3480)
 
+You can jam this thing in the Arduino (barrel) circular connector. You can also buy a barrel connector and attach it to the LED strip, and power the arduino from the LED strip. Check polarity first.
+
 ### Markings
 
-- O O O markings on capacitor point to negative terminal
-- 104M capacitor is 0.1 uF
+- `O O O >` markings on capacitor point to negative terminal
+- Capacitor with marking `104M` is 0.1 uF
 
 ### USB to Serial Adaptor Module
 
-UART serial control flow!?
+Used to send/receive data to/from the Arduino without having to use a USB connection. You'd want to do this if you are powering the Arduino from a different source (e.g. the LED strip, see above) but still want to read or send data to the Arduino from your computer.
+
+UART serial control flow!? Necessary for sending a reset signal to the Arduino so it can load a program from Serial. Can't get it to work.
 
 [XC-4464](https://www.jaycar.com.au/arduino-compatible-usb-to-serial-adaptor-module/p/XC4464)
 
@@ -115,19 +123,23 @@ Except you have to press the hardware reset button to get it working after hitti
 
 [This is the post that finally twigged for me](https://forum.arduino.cc/t/how-to-make-a-dtr-reset/385699/2)
 
-From USB serial module -> Arduino
+From USB serial module -> Arduino:
 
-- GND -> GND
-- CTS x> not attached
-- 5V -> 5V
-- (but also 5V -> 10kø resistor -> RESET) (actually it works without this :( ffs)
-- TXD -> RXD
-- RXD -> TXD
-- DTR -> 0.1uF cap -> RESET
+- `GND` -> `GND`
+- `CTS` -> not attached
+- `5V` -> `5V`
+  - (but also `5V` -> 10kø resistor -> RESET) (actually it works without this :( ffs)
+- `TXD` -> `RXD`
+- `RXD` -> `TXD`
+- `DTR` -> 0.1uF cap -> `RESET`
 
-[COuld this be why the reset doesn't work?](https://forum.arduino.cc/t/ftdi-ttl-rs232-and-arduino-programming/605537/6)
+[Could this be why the reset doesn't work?](https://forum.arduino.cc/t/ftdi-ttl-rs232-and-arduino-programming/605537/6)
 
-### Code
+### Some code about all this
+
+This code lights up some LEDs when it detects magnets on the hall effect sensor pins. It also prints the total number of magnet detections to serial.
+
+This was used to power a project to measure the number of wheel rotations on an exercise bike. That project would warrant its own post.
 
 ```arduino
 #include <FastLED.h>
