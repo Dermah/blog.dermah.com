@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/Dermah/blog.dermah.com#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
     "ansi-to-html": "^0.6.14",
     "node-git-lfs": "0.0.1"
