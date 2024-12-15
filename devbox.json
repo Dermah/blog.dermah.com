@@ -3,7 +3,8 @@
   "packages": [
     "nodejs@latest",
     "awscli2@latest",
-    "git-lfs@latest"
+    "git-lfs@latest",
+    "exiftool@latest"
   ],
   "shell": {
     "init_hook": [
